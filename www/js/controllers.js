@@ -98,10 +98,10 @@ angular.module('starter.controllers', [])
 
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
-    { id: 1, title: 'GeForce GTX 980', preco: 'R$ 1.423,00', image: '../img/geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
-    { id: 2, title: 'ATI Radeon R9 290X', preco: 'R$ 1.100,10', image: '../img/radeon.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
-    { id: 2, title: 'IPhone 6 Plus', preco: 'R$ 3.431,12', image: '../img/iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: '800m'},
-    { id: 3, title: 'Motorola X', preco: 'R$ 1.399,00', image: '../img/motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: '1.5km'},
+    { id: 1, title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: '../img/geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
+    { id: 2, title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: '../img/radeon.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
+    { id: 3, title: 'IPhone 6 Plus', preco: 'BR 3.431,12', image: '../img/iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: '800m'},
+    { id: 4, title: 'Motorola X', preco: 'BR 1.399,00', image: '../img/motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: '1.5km'},
   ];
 })
 
