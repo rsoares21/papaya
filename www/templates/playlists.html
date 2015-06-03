@@ -1,0 +1,55 @@
+<ion-view view-title="">
+	<ion-nav-title>Papaya</ion-nav-title>
+
+	<ion-header-bar class="bar-subheader item-input-inset" style="background-color:#11c1f3">
+		<label class="item-input-wrapper">
+			<i class="icon ion-search placeholder-icon"></i>
+			<input type="search" placeholder="Produto ou serviço" ng-model="query" ng-change="search()">
+		</label>
+		<button class="button button-clear" style="color:lightgrey">Cancel</button>
+	</ion-header-bar>
+
+	<ion-content style="background-color:#D2E5F3" overflow-scroll=”true”>
+		<div style="position:relative;top:-10px;padding-left:3px;padding-top:8px;height:16px;"><font size="1" color="#737CC4">Promoções exclusivas próximas de você agora<a style="color:#F706E7"> </a></font></div>
+		<ion-list>
+		  	<ion-item href="#" class="item item-thumbnail-left">
+		      	<img ng-src="../img/Radeon.jpg" >
+				<div style="position:relative;height:10px;top:-3px;"><font size="2" color="#000B61">ATI Radeon R9 290X</font></div>
+			    <div style="position:relative;height:10px;top:2px;"><font size="1" color="#97A3AC"> Lacosta @ Av. Rio Branco 156 sl 112 - Centro </font></div>
+			    <div style="position:relative;height:10px;top:4px;"><font size="1" color="#B2BBC2"> <a style="color:#368ED7"class="icon ion-iphone"></a> (21) 99777-8888 <a style="color:#FCED5D"class="icon ion-ios-star"></a></font></div>
+				<div style="position:relative;height:10px;top:4px;"><font size="1" color="#97A3AC"> </font></div>
+				<div style="position:relative;height:10px;top:3px;">
+                	<font size="1">
+                    <a style="color:#E376DF" class="icon ion-location">&nbsp;500m &nbsp;</a>
+                    <a style="color:#07ED2F" class="icon ion-arrow-graph-down-right">&nbsp;R$ 1.000,00 (-10%) &nbsp;</a>
+                    <a style="color:#11C43C" class="icon ion-card"> &nbsp;</a>
+					<a style="color:#4952F9" class="icon ion-information-circled"> &nbsp;</a>
+                    </font>
+                </div>
+		  	</ion-item>
+
+		</ion-list>
+		
+		<div style="position:relative;top:-10px;padding-left:3px;padding-top:8px;height:16px;"><font size="1" color="#737CC4">Outras ofertas<a style="color:#F706E7"> </a></font></div>
+
+        <ion-list>
+            <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}" class="item item-thumbnail-left">
+
+		      	<img ng-src="{{ playlist.image }}">
+				<div style="position:relative;height:10px;top:-3px;"><font size="2" color="#000B61">{{ playlist.title }}</font></div>
+			    <div style="position:relative;height:10px;top:2px;"><font size="1" color="#97A3AC"> {{ playlist.loja }}</font></div>
+			    <div style="position:relative;height:10px;top:4px;"><font size="1" color="#B2BBC2"> <a style="color:#368ED7"class="icon ion-iphone"></a> (21) 99777-8888 <a style="color:#FCED5D"class="icon ion-ios-star"></a></font></div>
+				<div style="position:relative;height:10px;top:4px;"><font size="1" color="#97A3AC"> </font></div>
+				<div style="position:relative;height:10px;top:3px;">
+                	<font size="1">
+                    <a style="color:#368ED7" class="icon ion-location">&nbsp;{{ playlist.distancia }} &nbsp;</a>
+                    <a style="color:#97A3AC" class="icon ion-arrow-right-a">&nbsp;{{ playlist.preco }} (-10%) &nbsp;</a>
+                    <a style="color:#11C43C" class="icon ion-card"> &nbsp;</a>
+					<a style="color:#4952F9" class="icon ion-information-circled"> &nbsp;</a>
+                    </font>
+                </div>
+
+            </ion-item>
+        </ion-list>            
+  </ion-content>
+</ion-view>

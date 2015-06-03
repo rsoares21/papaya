@@ -1,0 +1,86 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-calm">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-cube" menu-toggle="left" style="color:#07ED2F">
+        </button>
+      </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+
+        <button class="button button-icon button-clear ion-earth" ng-click="javascript:refresh();" style="color:#07ED2F">
+        </button>
+        <button class="button button-icon button-clear ion-refresh" ng-click="javascript:refresh();" style="color:#07ED2F">
+        </button>
+        <button class="button button-icon button-clear ion-funnel" ng-click="login()" style="color:#07ED2F">
+        </button>
+        
+      </ion-nav-buttons>
+
+    </ion-nav-bar>
+
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-content style="padding:5px;">
+      <div style="background-color:#11c1f3">
+        <div style="padding:10px">
+          <img ng-src="../img/avatar.png" width="30" height="30">
+        </div>
+        <div style="position:absolute; top:4px; left:55px;color:#FFFFFF;">
+          <font size="3"><b>José Maria da Silva</b></font><br>
+          <a ng-click="showAlert()"><i class="icon ion-location"></i></a>
+          <font size="1"><b>Centro da cidade - RJ</b></font><br>
+        </div>
+      </div>
+
+      <div class="list">
+        <a class="item item-icon-left" ng-click="login()">
+          <i class="icon ion-person"></i>
+          Meus dados
+        </a>
+
+        <a class="item item-icon-left" ng-click="login()">
+          <i class="icon ion-bag"></i>
+          Lista pessoal
+        </a>
+
+        <a class="item item-icon-left" ng-click="login()">
+          <i class="icon ion-paper-airplane"></i>
+          Promoções<span class="badge badge-assertive" href="#">3</span>
+        </a>
+
+        <a class="item item-icon-left" ng-click="login()">
+          <i class="icon ion-earth"></i>
+          Meus endereços
+        </a>
+
+        <a class="item item-icon-left" ng-click="login()">
+          <i class="icon ion-settings"></i>
+          Preferências
+        </a>
+
+        <a class="item item-icon-left" ng-click="login()">
+          <i class="icon ion-chatbubbles"></i>
+          Fale Conosco
+        </a>
+
+        <a class="item item-icon-left" ng-click="login()">
+          <i class="icon ion-help-circled"></i>
+          Ajuda
+        </a>
+
+      </div>
+
+      <br>
+      <br>
+
+      <ion-list>
+
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
