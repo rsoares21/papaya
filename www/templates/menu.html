@@ -1,22 +1,19 @@
-<ion-side-menus enable-menu-with-back-views="false">
+<ion-side-menus enable-menu-with-back-views="true">
   <ion-side-menu-content>
     <ion-nav-bar class="bar-calm">
+
       <ion-nav-back-button>
+        <i class="icon ion-arrow-left-c"></i>
       </ion-nav-back-button>
 
-      <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-cube" menu-toggle="left" style="color:#07ED2F">
+      <ion-nav-buttons side="primary">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left" style="color:#07ED2F">
         </button>
       </ion-nav-buttons>
-      <ion-nav-buttons side="right">
 
-        <button class="button button-icon button-clear ion-earth" ng-click="javascript:refresh();" style="color:#07ED2F">
+      <ion-nav-buttons side="secondary">
+        <button class="button button-icon button-clear ion-gear-a" ng-click="login()" style="color:#07ED2F;">
         </button>
-        <button class="button button-icon button-clear ion-refresh" ng-click="javascript:refresh();" style="color:#07ED2F">
-        </button>
-        <button class="button button-icon button-clear ion-funnel" ng-click="login()" style="color:#07ED2F">
-        </button>
-        
       </ion-nav-buttons>
 
     </ion-nav-bar>
@@ -28,7 +25,7 @@
     <ion-content style="padding:5px;">
       <div style="background-color:#11c1f3">
         <div style="padding:10px">
-          <img ng-src="../img/avatar.png" width="30" height="30">
+          <img ng-src="img/avatar.png" width="30" height="30">
         </div>
         <div style="position:absolute; top:4px; left:55px;color:#FFFFFF;">
           <font size="3"><b>José Maria da Silva</b></font><br>
@@ -38,19 +35,14 @@
       </div>
 
       <div class="list">
-        <a class="item item-icon-left" ng-click="login()">
-          <i class="icon ion-person"></i>
-          Meus dados
+        <a class="item item-icon-left" menu-toggle nav-clear href="#/app/playlists">
+          <i class="icon ion-search"></i>
+          Buscar
         </a>
 
-        <a class="item item-icon-left" ng-click="login()">
-          <i class="icon ion-bag"></i>
-          Lista pessoal
-        </a>
-
-        <a class="item item-icon-left" ng-click="login()">
+        <a class="item item-icon-left" menu-toggle nav-clear href="#/app/seguindo">
           <i class="icon ion-paper-airplane"></i>
-          Promoções<span class="badge badge-assertive" href="#">3</span>
+          Seguindo<span class="badge badge-assertive" href="#">3</span>
         </a>
 
         <a class="item item-icon-left" ng-click="login()">

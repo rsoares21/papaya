@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $timeout) {
   // Form data for the login modal
@@ -31,7 +31,10 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
-  
+
+  $scope.details = function (id) {
+    $state.go('#/app/playlist/100');
+  };  
   
  // Triggered on a button click, or some other target
  $scope.showPopup = function() {
@@ -91,30 +94,85 @@ angular.module('starter.controllers', [])
        console.log('Thank you for not eating my delicious ice cream cone');
      });
    };  
-  
-  
-  
 })
 
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
-    { id: 1, title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
-    { id: 2, title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'radeon.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
-    { id: 3, title: 'IPhone 6 Plus', preco: 'BR 3.431,12', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: '800m'},
-    { id: 4, title: 'Motorola X', preco: 'BR 1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: '1.5km'},
-    { id: 5, title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
-    { id: 6, title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'radeon.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
-    { id: 7, title: 'IPhone 6 Plus', preco: 'BR 3.431,12', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: '800m'},
-    { id: 8, title: 'Motorola X', preco: 'BR 1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: '1.5km'},
+    { id: 1, rating: '95%', followicon:'ion-checkmark-circled', title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
+    { id: 2, rating: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'r9-290x.png', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
+    { id: 3, rating: '85%', followicon:'', title: 'IPhone 6 Plus', preco: 'BR 3.431,12', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: '800m'},
+    { id: 4, rating: '85%', followicon:'', title: 'Motorola X', preco: 'BR 1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: '1.5km'},
+    { id: 5, rating: '85%', followicon:'', title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
+    { id: 6, rating: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'radeon.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
+    { id: 7, rating: '80%', followicon:'', title: 'IPhone 6 Plus', preco: 'BR 3.431,12', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: '800m'},
+    { id: 8, rating: '90%', followicon:'', title: 'Motorola X', preco: 'BR 1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: '1.5km'},
 
   ];
-})
 
+})
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 
   $scope.selectedPlaylist = $stateParams.playlistId;
 
+})
+
+.controller('MapCtrl', function($scope, $ionicLoading, $compile) {
+  function initialize() {
+    var myLatlng = new google.maps.LatLng(43.07493,-89.381388);
+    
+    var mapOptions = {
+      center: myLatlng,
+      zoom: 16,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map"),
+        mapOptions);
+    
+    //Marker + infowindow + angularjs compiled ng-click
+    var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+    var compiled = $compile(contentString)($scope);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: compiled[0]
+    });
+
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Uluru (Ayers Rock)'
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });
+
+    $scope.map = map;
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+  
+  $scope.centerOnMe = function() {
+    if(!$scope.map) {
+      return;
+    }
+
+    $scope.loading = $ionicLoading.show({
+      content: 'Getting current location...',
+      showBackdrop: false
+    });
+
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+      $scope.loading.hide();
+    }, function(error) {
+      alert('Unable to get location: ' + error.message);
+    });
+  };
+  
+  $scope.clickTest = function() {
+    alert('Example of infowindow with ng-click')
+  };
+  
 })
 
 ;
