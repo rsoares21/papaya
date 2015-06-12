@@ -18,6 +18,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       StatusBar.styleDefault();
     }
   });
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -30,30 +31,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: "/search",
+  .state('app.busca', {
+    url: "/busca",
     views: {
       'menuContent': {
-        templateUrl: "templates/search.html"
-      }
-    }
-  })
-
-  .state('app.browse', {
-    url: "/browse",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/browse.html"
-      }
-    }
-  })
-
-  .state('app.playlists', {
-    url: "/playlists",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/playlists.html",
-        controller: 'PlaylistsCtrl'
+        templateUrl: "templates/busca.html",
+        controller: 'BuscaCtrl'
       }
     }
   })
@@ -73,7 +56,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: "templates/seguindo.html",
-        controller: 'PlaylistsCtrl'
+        controller: 'SeguindoCtrl'
       }
     }
   })
@@ -83,7 +66,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: "templates/home.html",
-        controller: 'PlaylistsCtrl'
+        controller: 'HomeCtrl'
       }
     }
   })
@@ -100,7 +83,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/app/busca');
 
 })
 

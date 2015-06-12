@@ -1,5 +1,6 @@
 angular.module('starter.controllers', ['ionic'])
 
+
 .controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
@@ -96,8 +97,8 @@ angular.module('starter.controllers', ['ionic'])
    };  
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
+.controller('BuscaCtrl', function($scope) {
+  $scope.produtos = [
     { id: 1, rating: '95%', followicon:'ion-checkmark-circled', title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
     { id: 2, rating: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'r9-290x.png', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
     { id: 3, rating: '85%', followicon:'', title: 'IPhone 6 Plus', preco: 'BR 3.431,12', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: '800m'},
@@ -106,10 +107,22 @@ angular.module('starter.controllers', ['ionic'])
     { id: 6, rating: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'radeon.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
     { id: 7, rating: '80%', followicon:'', title: 'IPhone 6 Plus', preco: 'BR 3.431,12', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: '800m'},
     { id: 8, rating: '90%', followicon:'', title: 'Motorola X', preco: 'BR 1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: '1.5km'},
-
   ];
 
+  $scope.ofertas = [
+    { id: 1, rating: '95%', followicon:'ion-checkmark-circled', title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
+    { id: 2, rating: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'r9-290x.png', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
+  ];
+
+
 })
+
+.controller('HomeCtrl', function($scope) {
+  $scope.allusers = [
+      { id: 1, name: 'Jose Maria da Silva', age: 41},  
+      { id: 2, name: 'Maria Jose da Silva', age: 21}
+    ];
+  })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 
@@ -117,62 +130,11 @@ angular.module('starter.controllers', ['ionic'])
 
 })
 
-.controller('MapCtrl', function($scope, $ionicLoading, $compile) {
-  function initialize() {
-    var myLatlng = new google.maps.LatLng(43.07493,-89.381388);
-    
-    var mapOptions = {
-      center: myLatlng,
-      zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("map"),
-        mapOptions);
-    
-    //Marker + infowindow + angularjs compiled ng-click
-    var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-    var compiled = $compile(contentString)($scope);
+.controller('SeguindoCtrl', function($scope) {
 
-    var infowindow = new google.maps.InfoWindow({
-      content: compiled[0]
-    });
+  $scope.selectedPlaylist = $stateParams.playlistId;
 
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'Uluru (Ayers Rock)'
-    });
-
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(map,marker);
-    });
-
-    $scope.map = map;
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
-  
-  $scope.centerOnMe = function() {
-    if(!$scope.map) {
-      return;
-    }
-
-    $scope.loading = $ionicLoading.show({
-      content: 'Getting current location...',
-      showBackdrop: false
-    });
-
-    navigator.geolocation.getCurrentPosition(function(pos) {
-      $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-      $scope.loading.hide();
-    }, function(error) {
-      alert('Unable to get location: ' + error.message);
-    });
-  };
-  
-  $scope.clickTest = function() {
-    alert('Example of infowindow with ng-click')
-  };
-  
 })
 
 ;
+modal
