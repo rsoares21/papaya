@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -79,7 +79,19 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'PlaylistCtrl'
       }
     }
+  })
+
+  .state('app.produto', {
+    url: "/produto/:produtoId",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/produto.html",
+        controller: 'ProdutoCtrl'
+      }
+    }
   });
+
+
 
 
   // if none of the above states are matched, use this as the fallback

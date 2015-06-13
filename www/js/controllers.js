@@ -86,10 +86,11 @@ angular.module('starter.controllers', ['ionic'])
    };
 
    // An alert dialog
-   $scope.showAlert = function() {
+   $scope.showAlert = function(text) {
+     $scope.alerttext = text;
      var alertPopup = $ionicPopup.alert({
-       title: 'Localização atual',
-       template: 'São Conrado, Barra da Tijuca, Recreio e Proximidades'
+       title: 'Alert',
+       template: 'Deseja remover oferta '+ $scope.alerttext + ' por 30 minutos ?' 
      });
      alertPopup.then(function(res) {
        console.log('Thank you for not eating my delicious ice cream cone');
@@ -97,21 +98,19 @@ angular.module('starter.controllers', ['ionic'])
    };  
 })
 
-.controller('BuscaCtrl', function($scope) {
-  $scope.produtos = [
+.controller('BuscaCtrl', function($scope, $rootScope) {
+  $scope.servicos = [
+    { id: 1, rating: '95%', tipo: 'Academia', title: 'Power Academia', image: 'academia.png', endereco: '@ Rua 13 de Maio 110 / 2001 - Centro', distancia: '50m'},
+    { id: 2, rating: '90%', tipo: 'Informatica', title: 'Best Shop BR', image: 'default_servicos.jpg', endereco: '@ Rua 13 de Maio 110 / 2001 - Centro', distancia: '50m'},
+    { id: 3, rating: '85%', tipo: 'Informatica', title: 'Smart Price', image: 'default_servicos.jpg', endereco: '@ Rua do Rosario 101 / sl 311 - Centro', distancia: '50m'},
+    { id: 4, rating: '85%', tipo: 'Telefonia', title: 'Vivo', image: 'vivo.jpg', endereco: '@ Av. Rio Branco 156 / 102 - Centro', distancia: '55m'},
+  ];
+
+  $rootScope.ofertas = [
     { id: 1, rating: '95%', followicon:'ion-checkmark-circled', title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
     { id: 2, rating: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'r9-290x.png', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
     { id: 3, rating: '85%', followicon:'', title: 'IPhone 6 Plus', preco: 'BR 3.431,12', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: '800m'},
-    { id: 4, rating: '85%', followicon:'', title: 'Motorola X', preco: 'BR 1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: '1.5km'},
-    { id: 5, rating: '85%', followicon:'', title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
-    { id: 6, rating: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'radeon.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
-    { id: 7, rating: '80%', followicon:'', title: 'IPhone 6 Plus', preco: 'BR 3.431,12', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: '800m'},
-    { id: 8, rating: '90%', followicon:'', title: 'Motorola X', preco: 'BR 1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: '1.5km'},
-  ];
-
-  $scope.ofertas = [
-    { id: 1, rating: '95%', followicon:'ion-checkmark-circled', title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
-    { id: 2, rating: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'r9-290x.png', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
+    { id: 4, rating: '85%', followicon:'', title: 'Motorola X', preco: 'BR 1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: '1.5km'}
   ];
 
 
@@ -130,11 +129,23 @@ angular.module('starter.controllers', ['ionic'])
 
 })
 
+.controller('ProdutoCtrl', function($scope, $stateParams, $rootScope) {
+
+  
+  var produtoId = $stateParams.produtoId;
+
+  $scope.produto = $rootScope.ofertas[produtoId-1];
+
+})
+
+
 .controller('SeguindoCtrl', function($scope) {
 
-  $scope.selectedPlaylist = $stateParams.playlistId;
+  $scope.produtos = [
+    { id: 1, rating: '95%', followicon:'ion-checkmark-circled', title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
+    { id: 2, rating: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'r9-290x.png', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'}
+  ];
 
 })
 
 ;
-modal

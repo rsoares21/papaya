@@ -1,0 +1,56 @@
+<ion-view view-title="">
+	<ion-nav-title>{{ produto.title }}</ion-nav-title>
+
+	<ion-header-bar class="bar-subheader item-input-inset" style="background-color:#11c1f3">
+
+			<label class="item-input-wrapper">
+
+				<i class="icon ion-search placeholder-icon"></i>
+	
+				<input style="font-size:12px;" type="search" placeholder="Produto ou Serviço" ng-model="searchText">
+			</label>
+
+	</ion-header-bar>
+
+	<ion-content style="background-color:#D2E5F3" overflow-scroll=”true”>
+
+		<div style="position:relative;top:-14px;padding-left:3px;padding-top:8px;height:16px;"><font size="1" color="#737CC4">Mais informaçòes da oferta selecionada :<a style="color:#F706E7"> </a></font>
+		</div>
+
+		<ion-list>
+            <ion-item class="item"  href="#" style="height:450px;">
+				<div style="width:54px;height:54px;position:relative;top:-13px;left:-15px;background-color:#F4F4F4;padding:2px;">
+			      	<img width="50px" height="50px" ng-src="img/{{ produto.image }}">
+                </div>
+
+		      	<div style="position:absolute;left:310px;top:21px;background-color:yellow">
+						<div style="width:0px;height:20px;background-color:#11c1f3;text-align:center;">
+							<i style="color:#B2BBC2;" class="icon {{produto.followicon}}"></i>
+						</div>
+				</div>
+
+				<div style="position:absolute;height:10px;left:70px;top:-1px;"><font size="2" color="#000B61">{{ produto.title }}</font></div>
+			    <div style="position:absolute;height:10px;left:70px;top:10px;"><font size="1" color="#97A3AC">{{ produto.loja }}</font></div>
+			    <div style="position:absolute;height:10px;left:70px;top:21px;"><font size="1" color="#B2BBC2">
+                	<a style="color:#368ED7"class="icon ion-iphone"></a>(21) 99777-8888&nbsp;
+                	<a style="color:#FCED5D" class="icon ion-ios-star"></a><a style="font-size:6px">95%</a>
+                </div>
+				<div style="position:absolute;height:10px;left:70px;top:35px;">
+                	<font size="1">
+                    <a style="color:#368ED7" class="icon ion-location">&nbsp;{{ produto.distancia }} &nbsp;</a>
+                    <a style="color:#07ED2F" class="icon ion-arrow-right-a">&nbsp;{{ produto.preco }} &nbsp;</a>
+                    <a href="javascript:alert('formasdepagto');" style="color:#11C43C" class="icon ion-card"> &nbsp;</a>
+                    <a href="javascript:alert('maisinfo');" style="color:orange" class="icon ion-information-circled"> &nbsp;</a>
+                    </font>
+
+
+                </div>
+
+            </ion-item>
+
+
+   		</ion-list>
+
+		
+  </ion-content>
+</ion-view>
