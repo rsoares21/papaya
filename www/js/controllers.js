@@ -100,19 +100,21 @@ angular.module('starter.controllers', ['ionic'])
 
 .controller('BuscaCtrl', function($scope, $rootScope) {
   $scope.servicos = [
-    { id: 1, rating: '95%', tipo: 'Academia', title: 'Power Academia', image: 'academia.png', endereco: '@ Rua 13 de Maio 110 / 2001 - Centro', distancia: '50m'},
-    { id: 2, rating: '90%', tipo: 'Informatica', title: 'Best Shop BR', image: 'default_servicos.jpg', endereco: '@ Rua 13 de Maio 110 / 2001 - Centro', distancia: '50m'},
-    { id: 3, rating: '85%', tipo: 'Informatica', title: 'Smart Price', image: 'default_servicos.jpg', endereco: '@ Rua do Rosario 101 / sl 311 - Centro', distancia: '50m'},
-    { id: 4, rating: '85%', tipo: 'Telefonia', title: 'Vivo', image: 'vivo.jpg', endereco: '@ Av. Rio Branco 156 / 102 - Centro', distancia: '55m'},
+    { id: 1, rating: '95%', tipo: 'Academia', title: 'Power Academia', image: 'academia.png', endereco: 'Rua 13 de Maio 110 / 2001 - Centro', distancia: 3100},
+    { id: 2, rating: '90%', tipo: 'Informatica', title: 'Best Shop BR', image: 'default_servicos.jpg', endereco: 'Rua 13 de Maio 110 / 2001 - Centro', distancia: 3150},
+    { id: 3, rating: '85%', tipo: 'Informatica', title: 'Smart Price', image: 'default_servicos.jpg', endereco: 'Rua do Rosario 101 / sl 311 - Centro', distancia: 4050},
+    { id: 4, rating: '85%', tipo: 'Telefonia', title: 'Vivo', image: 'vivo.jpg', endereco: 'Av. Rio Branco 156 / 102 - Centro', distancia: 55},
+    { id: 5, rating: '85%', tipo: 'Floricultura', title: 'Flora Margarida', image: 'default_servicos.jpg', endereco: 'Rua Senador Vergueiro 218 Loja D - Flamengo', distancia: 55},
+    { id: 6, rating: '85%', tipo: 'Academia', title: 'Academia Upper', image: 'upper.jpg', endereco: 'Rua Marquês de Abrantes, 88, 96 e 100, Flamengo  ', distancia: 75},        
+    { id: 7, rating: '85%', tipo: 'Autoescola', title: 'Auto E Moto Escola Apollo', image: 'default_servicos.jpg', endereco: 'Rua Marquês de Abrantes, 177 - Loja: C Flamengo', distancia: 705},            
   ];
 
   $rootScope.ofertas = [
-    { id: 1, rating: '95%', followicon:'ion-checkmark-circled', title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
-    { id: 2, rating: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'r9-290x.png', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: '250m'},
-    { id: 3, rating: '85%', followicon:'', title: 'IPhone 6 Plus', preco: 'BR 3.431,12', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: '800m'},
-    { id: 4, rating: '85%', followicon:'', title: 'Motorola X', preco: 'BR 1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: '1.5km'}
+    { id: 1, rating: '95%', followicon:'ion-checkmark-circled', title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: 250},
+    { id: 2, rating: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'r9-290x.png', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: 250},
+    { id: 3, rating: '85%', followicon:'', title: 'IPhone 6 Plus', preco: 'BR 3.431,12', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: 80},
+    { id: 4, rating: '85%', followicon:'', title: 'Motorola X', preco: 'BR 1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: 1500}
   ];
-
 
 })
 
