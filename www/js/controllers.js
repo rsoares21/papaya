@@ -110,10 +110,15 @@ angular.module('starter.controllers', ['ionic'])
   ];
 
   $rootScope.ofertas = [
-    { id: 1, rating: '95%', followicon:'ion-checkmark-circled', title: 'GeForce GTX 980', preco: 'BR 1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: 250},
-    { id: 2, rating: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: 'BR 1.100,10', image: 'r9-290x.png', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: 250},
-    { id: 3, rating: '85%', followicon:'', title: 'IPhone 6 Plus', preco: 'BR 3.431,12', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: 80},
-    { id: 4, rating: '85%', followicon:'', title: 'Motorola X', preco: 'BR 1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: 1500}
+    { id: 1, ratingservico: '95%', followicon:'ion-checkmark-circled', title: 'GeForce GTX 980', preco: '1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: 250, info:'', desconto:'5'},
+    { id: 2, ratingservico: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: '1.100,00', image: 'r9-290x.png', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: 250, info:'', desconto:'10'},
+    { id: 3, ratingservico: '85%', followicon:'', title: 'IPhone 6 Plus', preco: '3.499,00', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: 80, info:'', desconto:'15'},
+    { id: 4, ratingservico: '85%', followicon:'', title: 'Motorola X', preco: '1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: 1500, info: '', desconto:'20'},
+    { id: 5, ratingservico: '85%', followicon:'', title: 'Royal Canin 8+ 1kg', preco: '43,50', image: 'Royal_Canin_Mini_Adult_8_large.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: 80, info:'', desconto:'15'},
+    { id: 6, ratingservico: '85%', followicon:'', title: 'Óculos Rayban R1', preco: '599,00', image: 'default_produtos.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: 1500, info:'', desconto:'10'},
+    { id: 7, ratingservico: '85%', followicon:'', title: 'Smartphone Samsung Galaxy Gran Prime', preco: '499,00', image: 'samsung_galaxygp.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: 80, info:'Smartphone Samsung Galaxy Gran Prime Dual Chip Desbloqueado Tim Android 4.4 Kit Kat Tela 5 8GB 3G Câmera 8MP - Branco', desconto:'5'},
+    { id: 8, ratingservico: '85%', followicon:'', title: 'Motorola X', preco: '1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: 1500, info:'', desconto:'20'}
+
   ];
 
 })
