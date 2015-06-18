@@ -1,0 +1,32 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Preferências</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closePreferences()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+
+  	  <p style="background-color:white;">&nbsp;&nbsp;Ordenar resultados da busca por :<br></p>
+
+		<div class="row">
+		  	<div class="col">
+		  	  	<label class="item" >
+	  				<button class="button button-small button-positive" type="submit" ng-click="setPrefsOrderBy('title')">Titulo</button>
+	  			</label>
+			</div>
+			<div class="col">
+			  <label class="item" >
+			  	<button class="button button-small button-positive" type="submit" ng-click="setPrefsOrderBy('distancia')">Distancia</button>
+			  </label>
+			</div>
+			<div class="col">
+				<label class="item" >
+					<button class="button button-small button-positive" type="submit" ng-click="setPrefsOrderBy('preco')">Preço</button>
+				</label>
+			</div>
+		</div>
+
+    </form>
+  </ion-content>
+</ion-modal-view>

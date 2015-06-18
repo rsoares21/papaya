@@ -41,6 +41,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.ofertaslive', {
+    url: "/ofertaslive",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/ofertaslive.html",
+        controller: 'OfertasLive'
+      }
+    }
+  })
+
   .state('app.result', {
     url: "/result",
     views: {

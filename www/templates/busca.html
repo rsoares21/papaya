@@ -18,7 +18,7 @@
 			<!--<div style="position:relative;top:-12px;padding-left:3px;padding-top:6px;height:12px;"><font size="1" color="#737CC4">Promoções exclusivas próximas de você agora<a style="color:#F706E7"> </a></font></div>-->
 
 			<ion-list>
-	            <ion-item ng-repeat="produto in ofertas | filter:searchText | orderBy:'distancia' | limitTo:6:1"  class="itemppp"  style="height:52px;" on-swipe-left="showAlert({{produto.id}})" href="#/app/produto/{{produto.id}}">
+	            <ion-item ng-repeat="produto in ofertas | filter:searchText | limitTo:5:1"  class="itemppp"  style="height:52px;" on-swipe-right="showAlert({{produto.id}})" href="#/app/produto/{{produto.id}}">
 					<div style="width:50px;height:50px;position:relative;top:-15px;left:-15px;background-color:#F4F4F4;padding:1px;">
 				      	<img width="48px" height="48px" ng-click="showPopup()" href="#" ng-src="img/{{ produto.image }}">
 	                </div>
@@ -28,34 +28,37 @@
 					</div>-->
 
 					<div style="position:absolute;height:10px;left:58px;top:-2px;"><a style="font-family:Georgia, serif;font-size:12px;color:#012B08">{{ produto.title }}</a></div>
-				    <div style="position:absolute;height:10px;left:58px;top:10px;"><a style="font-size:9px;color:#CAD0D4">{{ produto.loja }}</a></div>
-					<div style="position:absolute;height:10px;left:60px;top:30px;">
+				    <div style="position:absolute;height:10px;left:58px;top:13px;"><p style="font-size:9px;color:#CAD0D4">{{ produto.loja }}</p></div>
+					<div style="position:absolute;height:10px;left:60px;top:27px;">
 	                    <a style="color:#07ED2F;font-size:9px;" class="icon ion-location">&nbsp;{{ produto.distancia }}m&nbsp;&nbsp;</a>
 	                </div>
-				    <div style="position:absolute;height:10px;left:100px;top:30px;">
+				    <div style="position:absolute;height:10px;left:100px;top:27px;">
                     	<font size="1" color="#B2BBC2"><a style="color:#368ED7" class="icon ion-iphone"></a>
                         <a style="font-size:9px">(21) 99777-8888</a>&nbsp;</font>
 	                	<a style="color:#FCED5D" class="icon ion-ios-star"></a><a style="font-size:6px">{{produto.ratingservico}}</a>
 	                </div>
 
 
-					<div style="position:absolute;height:18px;right:0%;top:30px;width:125px;background-color:#11F3E1;padding-left:9px;border-radius: 2px 4px 10px 6px">
-						<div style="position:absolute;top:-1px;color:#FFFD39;font-size:9px;"><b>R$</b>&nbsp;</div>
-						<div style="position:absolute;left:30px;top:-1px;color:#05B623;font-size:8.5px;"><b>{{ produto.preco }}</b></div>
+					<div style="position:absolute;height:18px;right:-5%;top:7px;width:105px;padding-left:9px;">
+						<div style="position:absolute;top:-1px;color:#FFBAD5;font-size:7.5px;font-weight:">R$&nbsp;<del>{{ produto.precoNormal }}</del></div>
 	                </div>
 
-					<div style="position:absolute;height:22px;right:0%;top:26px;width:30px;background-color:#07ED2F;border-radius: 28px 8px 8px 28px">
-						<div style="position:relative;width:255px;color:#11c1f3;font-size:10px;padding-top:1px;">&nbsp;<b>-{{ produto.desconto }}%</b>&nbsp;</div>
+					<div style="position:absolute;height:25px;right:0%;top:23px;width:105px;background-color:#1186F3;padding-left:9px;border-radius: 2px 4px 0px 6px">
+						<div style="position:absolute;top:2px;color:#FFFD39;font-size:9px;"><b>R$</b>&nbsp;</div>
+						<div style="position:absolute;left:30px;top:2px;color:#FFFFFF;font-size:9.5px;"><b>{{ produto.preco }}</b></div>
 	                </div>
 
+					<div style="position:absolute;height:18px;right:0%;top:8px;width:25px;background-color:#07ED2F;border-radius: 28px 8px 8px 28px">
+						<div style="position:relative;width:255px;color:#11c1f3;font-size:8px;">&nbsp;&nbsp;<b>-{{ produto.desconto }}%</b>&nbsp;</div>
+	                </div>
+ 
 
 	            </ion-item>
 
-	            <ion-item class="itemppp" style="height:40px;" href="#/app/produto/100">
-					<div>
-                    	Ver todas ofertas
-                    </div>
-				</ion-item>
+				<button class="button button-small button-balanced" ng-click="goOfertaslive()" style="width:100%">
+				  &nbsp;&nbsp;&nbsp;&nbsp;Pesquisar todas as ofertas&nbsp;&nbsp;&nbsp;&nbsp;
+				</button>
+
 
                 
 	   		</ion-list>
@@ -69,25 +72,17 @@
 			      	<img width="50px" height="50px" ng-src="img/{{ servico.image }}">
                 </div>
 
-		      	<div style="position:absolute;left:310px;top:21px;">
-					<i style="color:#B2BBC2;" class="icon {{produto.followicon}}"></i>
-				</div>
-
 				<div style="position:absolute;height:10px;left:60px;top:-1px;"><font size="2" color="#000B61">{{ servico.title }}</font></div>
-			    <div style="position:absolute;height:10px;left:60px;top:8px;"><font size="1" color="#E30975"><b>@</b></font>&nbsp;<font size="1" color="#97A3AC">{{ servico.endereco }}</font></div>
-			    <div style="position:absolute;height:10px;left:60px;top:21px;"><font size="1" color="#B2BBC2">
-                	<a style="color:#368ED7"class="icon ion-iphone"></a>&nbsp;(21) 99777-8888&nbsp;
-                	<a style="color:#FCED5D" class="icon ion-ios-star"></a><a style="font-size:6px">95%</a>
+			    <div style="position:absolute;height:10px;left:60px;top:13px;"><font size="1" color="#E30975"><b>@</b></font>&nbsp;<font size="1" color="#97A3AC">{{ servico.endereco }}</font></div>
+				<div style="position:absolute;height:10px;left:65px;top:30px;">
+                    <a style="color:#07ED2F;font-size:9px;" class="icon ion-location">&nbsp;{{ servico.distancia }}m&nbsp;&nbsp;</a>
                 </div>
-				<div style="position:absolute;height:10px;left:60px;top:35px;">
-                	<font size="1">
-                    <a style="color:#368ED7;font-size:8px;" class="icon ion-location">&nbsp;{{ servico.distancia }}m &nbsp;</a>
-                    <a style="color:#11C43C" class="icon ion-card"> &nbsp;</a>
-                    </font>
-
-
+			    <div style="position:absolute;height:10px;left:105px;top:30px;">
+                	<font size="1" color="#B2BBC2"><a style="color:#368ED7" class="icon ion-iphone"></a>
+                    <a style="font-size:9px">(21) 99777-8888</a>&nbsp;</font>
+                	<a style="color:#FCED5D" class="icon ion-ios-star"></a><a style="font-size:6px">{{servico.rating}}</a>
                 </div>
-
+                <a style="color:#11C43C" class="icon ion-card"> &nbsp;</a>
             </ion-item>
    		</ion-list>
 

@@ -1,10 +1,62 @@
 angular.module('starter.controllers', ['ionic'])
 
+.controller('AppCtrl', function($scope, $rootScope, $ionicModal, $filter, $ionicPopup, $timeout, $state) {
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $timeout) {
+  $scope.goOfertaslive = function () {
+    $state.go('app.ofertaslive');
+  };  
+
+  $scope.setPrefsOrderBy = function(order) {
+    items = $rootScope.ofertas;
+
+    $rootScope.ofertas = $filter('orderBy')(items, order);
+    //$rootScope.orderByBusca = 'distancia';
+    console.log('order: ' + order);
+    $scope.closePreferences();
+  };
+
+
+  // the preferences modal
+  $scope.setPrefsOrderByDistancia = function() {
+    items = $rootScope.ofertas;
+
+    $rootScope.ofertas = $filter('orderBy')(items, "distancia");
+    //$rootScope.orderByBusca = 'distancia';
+    console.log('distancia');
+    $scope.closePreferences();
+  };
+
+  // the preferences modal
+  $scope.setPrefsOrderByTitulo = function() {
+    items = $rootScope.ofertas;
+    
+    $rootScope.ofertas = $filter('orderBy')(items, "title");
+    //$rootScope.orderByBusca = 'title';
+    console.log('title');
+    //$scope.closePreferences();
+  };
+
+  // Form data for the login modal
+  $scope.prefsData = {};
+  // Create the preferencias modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/preferencias.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modalprefs = modal;
+  });
+
+  // Open the preferences modal
+  $scope.preferences = function() {
+    $scope.modalprefs.show();
+  };
+
+  // Triggered in the preferencias modal to close it
+  $scope.closePreferences = function() {
+    $scope.modalprefs.hide();
+  };
+
   // Form data for the login modal
   $scope.loginData = {};
-
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
@@ -87,6 +139,7 @@ angular.module('starter.controllers', ['ionic'])
 
    // An alert dialog
    $scope.showAlert = function(text) {
+     console.log('showAlert: ' + text);
      $scope.alerttext = text;
      var alertPopup = $ionicPopup.alert({
        title: 'Alert',
@@ -97,31 +150,45 @@ angular.module('starter.controllers', ['ionic'])
      });
    };  
 })
+ 
+.controller('BuscaCtrl', function($scope, $rootScope, $filter) {
 
-.controller('BuscaCtrl', function($scope, $rootScope) {
   $scope.servicos = [
     { id: 1, rating: '95%', tipo: 'Academia', title: 'Power Academia', image: 'academia.png', endereco: 'Rua 13 de Maio 110 / 2001 - Centro', distancia: 3100},
     { id: 2, rating: '90%', tipo: 'Informatica', title: 'Best Shop BR', image: 'default_servicos.jpg', endereco: 'Rua 13 de Maio 110 / 2001 - Centro', distancia: 3150},
     { id: 3, rating: '85%', tipo: 'Informatica', title: 'Smart Price', image: 'default_servicos.jpg', endereco: 'Rua do Rosario 101 / sl 311 - Centro', distancia: 4050},
-    { id: 4, rating: '85%', tipo: 'Telefonia', title: 'Vivo', image: 'vivo.jpg', endereco: 'Av. Rio Branco 156 / 102 - Centro', distancia: 55},
+    { id: 4, rating: '85%', tipo: 'Telefonia', title: 'Vivo', image: 'vivo.jpg', endereco: 'Av. Rio Branco 156 / 102 - Centro', distancia: 2055},
     { id: 5, rating: '85%', tipo: 'Floricultura', title: 'Flora Margarida', image: 'default_servicos.jpg', endereco: 'Rua Senador Vergueiro 218 Loja D - Flamengo', distancia: 55},
-    { id: 6, rating: '85%', tipo: 'Academia', title: 'Academia Upper', image: 'upper.jpg', endereco: 'Rua Marquês de Abrantes, 88, 96 e 100, Flamengo  ', distancia: 75},        
+    { id: 6, rating: '85%', tipo: 'Academia', title: 'Academia Upper', image: 'upper.jpg', endereco: 'Rua Marquês de Abrantes, 88, 96 e 100, Flamengo  ', distancia: 575},        
     { id: 7, rating: '85%', tipo: 'Autoescola', title: 'Auto E Moto Escola Apollo', image: 'default_servicos.jpg', endereco: 'Rua Marquês de Abrantes, 177 - Loja: C Flamengo', distancia: 705},            
+    { id: 8, rating: '95%', tipo: 'Petshop', title: 'PetDog', image: 'default_servicos.jpg', endereco: 'Machado de Assis 221 / sl 311 - Flamengo', distancia: 80},                
   ];
 
   $rootScope.ofertas = [
-    { id: 1, ratingservico: '95%', followicon:'ion-checkmark-circled', title: 'GeForce GTX 980', preco: '1.423,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: 250, info:'', desconto:'5'},
-    { id: 2, ratingservico: '90%', followicon:'ion-checkmark-circled', title: 'ATI Radeon R9 290X', preco: '1.100,00', image: 'r9-290x.png', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: 250, info:'', desconto:'10'},
-    { id: 3, ratingservico: '85%', followicon:'', title: 'IPhone 6 Plus', preco: '3.499,00', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: 80, info:'', desconto:'15'},
-    { id: 4, ratingservico: '85%', followicon:'', title: 'Motorola X', preco: '1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: 1500, info: '', desconto:'20'},
-    { id: 5, ratingservico: '85%', followicon:'', title: 'Royal Canin 8+ 1kg', preco: '43,50', image: 'Royal_Canin_Mini_Adult_8_large.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: 80, info:'', desconto:'15'},
-    { id: 6, ratingservico: '85%', followicon:'', title: 'Óculos Rayban R1', preco: '599,00', image: 'default_produtos.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: 1500, info:'', desconto:'10'},
-    { id: 7, ratingservico: '85%', followicon:'', title: 'Smartphone Samsung Galaxy Gran Prime', preco: '499,00', image: 'samsung_galaxygp.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: 80, info:'Smartphone Samsung Galaxy Gran Prime Dual Chip Desbloqueado Tim Android 4.4 Kit Kat Tela 5 8GB 3G Câmera 8MP - Branco', desconto:'5'},
-    { id: 8, ratingservico: '85%', followicon:'', title: 'Motorola X', preco: '1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: 1500, info:'', desconto:'20'}
-
+    { id: 1, ratingservico: '95%', title: 'GeForce GTX 980', precoNormal: '1.800,00', preco: '1.499,00', image: 'geforce.jpg', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: 2250, info:'', desconto:'35'},
+    { id: 2, ratingservico: '90%', title: 'ATI Radeon R9 290X', precoNormal: '1.700,00', preco: '1.200,00', image: 'r9-290x.png', loja: 'Star Info @ Rua 13 de Maio 110 / 2001 - Centro', distancia: 2250, info:'', desconto:'10'},
+    { id: 3, ratingservico: '85%', title: 'IPhone 6 Plus', precoNormal: '3.999,00', preco: '3.499,00', image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: 2180, info:'', desconto:'15'},
+    { id: 4, ratingservico: '85%', title: 'Motorola X', precoNormal: '1.599,00', preco: '1.399,00', image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: 2350, info: '', desconto:'20'},
+    { id: 5, ratingservico: '85%', title: 'Royal Canin 8+ 1kg', precoNormal: '60,00', preco: '43,50', image: 'Royal_Canin_Mini_Adult_8_large.jpg', loja: 'PetDog @ Machado de Assis 221 / sl 311 - Flamengo', distancia: 80, info:'', desconto:'15'},
+    { id: 6, ratingservico: '85%', title: 'Óculos RAY-BAN RB5225 2034', precoNormal: '799,00', preco: '499,00', image: 'raybanrb5225.jpg', loja: 'Óticas do Povo @ Rua do Catete 350 / 25 - Catete', distancia: 500, info:'Óculos grau Preto', desconto:'10'},
+    { id: 7, ratingservico: '85%', title: 'Smartphone Samsung Galaxy Gran Prime', precoNormal: '759,00', preco: '499,00', image: 'samsung_galaxygp.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: 2800, info:'Smartphone Samsung Galaxy Gran Prime Dual Chip Desbloqueado Tim Android 4.4 Kit Kat Tela 5 8GB 3G Câmera 8MP - Branco', desconto:'35'},
+    { id: 8, ratingservico: '85%', title: 'Motorola X', precoNormal: '1.499,00', preco: '1.398,00', image: 'motox.jpg', loja: 'Vivo @ Rua 13 de Maio 101 - Centro', distancia: 2000, info:'', desconto:'20'}
   ];
 
+  items = $rootScope.ofertas;
+
+  $scope.qtdOfertas = items.length;
+
+  $rootScope.orderByBusca = 'distancia';
+
+  $rootScope.ofertas = $filter('orderBy')(items, $rootScope.orderByBusca);    
+
 })
+
+.controller('OfertasLive', function($scope, $rootScope) {
+
+})
+
 
 .controller('HomeCtrl', function($scope) {
   $scope.allusers = [
@@ -131,18 +198,25 @@ angular.module('starter.controllers', ['ionic'])
   })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-
   $scope.selectedPlaylist = $stateParams.playlistId;
-
 })
 
 .controller('ProdutoCtrl', function($scope, $stateParams, $rootScope) {
-
   
   var produtoId = $stateParams.produtoId;
+  var arr = [];
 
-  $scope.produto = $rootScope.ofertas[produtoId-1];
+  arr = $rootScope.ofertas;
 
+  for (var i=0, iLen=arr.length; i<iLen; i++) {
+
+    if (arr[i].id == produtoId) {
+      $scope.produto = arr[i];
+      //return arr[i];
+    }
+  }
+
+  //$scope.produto = $rootScope.ofertas[produtoId-1];
 })
 
 
