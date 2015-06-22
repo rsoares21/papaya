@@ -71,6 +71,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.enderecos', {
+    url: "/enderecos",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/enderecos.html",
+        controller: 'EnderecosCtrl'
+      }
+    }
+  })
+
   .state('app.home', {
     url: "/home",
     views: {

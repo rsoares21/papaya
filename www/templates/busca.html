@@ -5,7 +5,7 @@
 			<label class="item-input-wrapper">
 				<i class="icon ion-search placeholder-icon"></i>
 	
-				<input style="font-size:12px;" type="search" placeholder="Produto ou Serviço" ng-model="searchText" >
+				<input style="font-size:12px;" type="search" placeholder="Pesquisar Produto ou Serviço" ng-model="searchText" >
 			</label>
 			<!--<button class="button button-clear" style="color:lightgrey;"><a style="font-size:12px;"> Cancel </a></button>-->
 
@@ -18,7 +18,7 @@
 			<!--<div style="position:relative;top:-12px;padding-left:3px;padding-top:6px;height:12px;"><font size="1" color="#737CC4">Promoções exclusivas próximas de você agora<a style="color:#F706E7"> </a></font></div>-->
 
 			<ion-list>
-	            <ion-item ng-repeat="produto in ofertas | filter:searchText | limitTo:5:1"  class="itemppp"  style="height:52px;" on-swipe-right="showAlert({{produto.id}})" href="#/app/produto/{{produto.id}}">
+	            <ion-item ng-repeat="produto in ofertas | filter:searchText | limitTo:6:1"  class="itemppp"  style="height:52px;" on-swipe-left="showAlert({{produto.id}})" href="#/app/produto/{{produto.id}}">
 					<div style="width:50px;height:50px;position:relative;top:-15px;left:-15px;background-color:#F4F4F4;padding:1px;">
 				      	<img width="48px" height="48px" ng-click="showPopup()" href="#" ng-src="img/{{ produto.image }}">
 	                </div>
@@ -35,29 +35,34 @@
 				    <div style="position:absolute;height:10px;left:100px;top:27px;">
                     	<font size="1" color="#B2BBC2"><a style="color:#368ED7" class="icon ion-iphone"></a>
                         <a style="font-size:9px">(21) 99777-8888</a>&nbsp;</font>
-	                	<a style="color:#FCED5D" class="icon ion-ios-star"></a><a style="font-size:6px">{{produto.ratingservico}}</a>
+	                	<a style="color:#FCED5D" class="icon ion-ios-star"></a><a style="font-size:6px">{{produto.ratingservico}}</a>&nbsp;
+                        <a style="color:#07ED2F;font-size:8px;" class="icon {{produto.followicon}}"></a>
 	                </div>
 
 
-					<div style="position:absolute;height:18px;right:-5%;top:7px;width:105px;padding-left:9px;">
-						<div style="position:absolute;top:-1px;color:#FFBAD5;font-size:7.5px;font-weight:">R$&nbsp;<del>{{ produto.precoNormal }}</del></div>
+					<div style="position:absolute;height:18px;left:255px;top:17px;width:105px;padding-left:9px;">
+						<div style="position:absolute;left:45px;top:-1px;color:#FD0066;font-size:7px;font-weight:"><del>{{ produto.precoNormal | currency:"":2}}</del></div>
 	                </div>
 
-					<div style="position:absolute;height:25px;right:0%;top:23px;width:105px;background-color:#1186F3;padding-left:9px;border-radius: 2px 4px 0px 6px">
-						<div style="position:absolute;top:2px;color:#FFFD39;font-size:9px;"><b>R$</b>&nbsp;</div>
-						<div style="position:absolute;left:30px;top:2px;color:#FFFFFF;font-size:9.5px;"><b>{{ produto.preco }}</b></div>
+					<div style="position:absolute;height:18px;right:0%;top:33px;width:105px;background-color:#07ED2F;padding-left:9px;border-radius: 2px 4px 0px 6px">
+						<div style="position:absolute;top:-1px;color:#FFFD39;font-size:9px;"><b>R$</b>&nbsp;</div>
+						<div style="position:absolute;left:30px;top:-1px;color:#FFFFFF;font-size:8.5px;"><b>{{ produto.preco | currency:"":2}}</b></div>
 	                </div>
 
-					<div style="position:absolute;height:18px;right:0%;top:8px;width:25px;background-color:#07ED2F;border-radius: 28px 8px 8px 28px">
-						<div style="position:relative;width:255px;color:#11c1f3;font-size:8px;">&nbsp;&nbsp;<b>-{{ produto.desconto }}%</b>&nbsp;</div>
+					<div style="position:absolute;height:18px;right:0%;top:18px;width:25px;background-color:#07ED2F;border-radius: 28px 8px 8px 28px">
+						<div style="position:relative;width:255px;color:#11c1f3;font-size:8px;top:-2px;">&nbsp;&nbsp;<b>-{{ produto.desconto }}%</b>&nbsp;</div>
 	                </div>
- 
+
 
 	            </ion-item>
 
-				<button class="button button-small button-balanced" ng-click="goOfertaslive()" style="width:100%">
-				  &nbsp;&nbsp;&nbsp;&nbsp;Pesquisar todas as ofertas&nbsp;&nbsp;&nbsp;&nbsp;
-				</button>
+	            <div style="padding:2px">
+		            <center>
+						<button class="button button-small button-balanced" ng-click="goOfertaslive()" style="width:90%;">
+						  &nbsp;&nbsp;&nbsp;&nbsp;Pesquisar todas as ofertas ({{qtdOfertas}})&nbsp;&nbsp;&nbsp;&nbsp;
+						</button>
+					</center>
+				</div>
 
 
                 

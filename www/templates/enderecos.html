@@ -1,0 +1,22 @@
+<ion-view view-title="">
+  <ion-nav-title>Meus Endereços</ion-nav-title>
+  <ion-content style="background-color:#EAF3D2" overflow-scroll=”true”>
+
+    <ion-list>
+      <div class="item item-divider">Endereços Cadastrados</div>
+
+      <ion-item ng-repeat="local in enderecos" class="listppe cardppe" style="background-color:red" href="#/app/playlists/{{produto.id}}">
+    	 		<i class="icon ion-home" style="color:{{local.color}};font-size:30px;"></i>&nbsp;&nbsp;&nbsp;{{ local.title }}
+      </ion-item>
+
+      <div style="padding:2px">
+        <center>
+          <button class="button button-block button-balanced" ng-click="goOfertaslive()" style="width:90%;">
+      	  	&nbsp;&nbsp;&nbsp;&nbsp;Incluir Novo Endereço&nbsp;&nbsp;&nbsp;&nbsp;
+      	  </button>
+        </center>
+      </div>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

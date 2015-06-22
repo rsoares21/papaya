@@ -5,7 +5,7 @@
 			<label class="item-input-wrapper">
 				<i class="icon ion-search placeholder-icon"></i>
 	
-				<input style="font-size:12px;" type="search" placeholder="Produto ou Serviço" ng-model="searchText" >
+				<input style="font-size:12px;" type="search" placeholder="Pesquisar Produto ou Serviço" ng-model="searchText" >
 			</label>
 			<!--<button class="button button-clear" style="color:lightgrey;"><a style="font-size:12px;"> Cancel </a></button>-->
 
@@ -40,12 +40,12 @@
 
 
 					<div style="position:absolute;height:18px;left:255px;top:17px;width:105px;padding-left:9px;">
-						<div style="position:absolute;left:30px;top:-1px;color:#FD0066;font-size:7.5px;font-weight:"><del>{{ produto.precoNormal }}</del></div>
+						<div style="position:absolute;left:30px;top:-1px;color:#FD0066;font-size:7.5px;font-weight:"><del>{{ produto.precoNormal | currency:"":2}}</del></div>
 	                </div>
 
 					<div style="position:absolute;height:18px;right:0%;top:33px;width:105px;background-color:#1186F3;padding-left:9px;border-radius: 2px 4px 0px 6px">
 						<div style="position:absolute;top:-1px;color:#FFFD39;font-size:9px;"><b>R$</b>&nbsp;</div>
-						<div style="position:absolute;left:30px;top:-1px;color:#FFFFFF;font-size:8.5px;"><b>{{ produto.preco }}</b></div>
+						<div style="position:absolute;left:30px;top:-1px;color:#FFFFFF;font-size:8.5px;"><b>{{ produto.preco | currency:"":2}}</b></div>
 	                </div>
 
 					<div style="position:absolute;height:18px;right:0%;top:18px;width:25px;background-color:#07ED2F;border-radius: 28px 8px 8px 28px">
