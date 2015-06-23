@@ -6,22 +6,19 @@
       <div class="item item-divider">Endereços Cadastrados</div>
       <ion-item ng-repeat="local in enderecos" class="listppe cardppe" style="background-color:#FBFBFB;height:42px;padding:5px;">
           &nbsp;
-    	 		<i class="icon ion-home" style="color:{{local.color}};font-size:30px;"></i>&nbsp;&nbsp;&nbsp;{{ local.title }}
+    	 		<i class="icon ion-home" style="color:{{local.color}};font-size:25px;"></i><a style="font-size:12px;">&nbsp;&nbsp;&nbsp;{{ local.title }}</a>
           <div style="position:absolute;left:310px;top:21px;">
 
 
-            <button class="button button-small button-calm" ng-click="showAlert('Definir posicao atual')" style="width:30px;top:-16px;left:-80px">
+            <button class="button button-small button-calm" ng-click="showAlert('Definir posicao atual')" style="height:26px;width:26px;top:-16px;left:-88px">
               <i class="icon ion-location"> </i>
             </button>
 
-            <label class="toggle" style="top:-16px;left:-72px;">
-               <input type="checkbox">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-            </label>
+            <button class="button button-small button-stable" ng-click="showAlert('Remover Temporariamente')" style="height:26px;width:26px;top:-16px;left:-86px">
+              <i class="icon ion-close-circled"> </i>
+            </button>
 
-            <button class="button button-small button-assertive" ng-click="showAlert('Excluir Endereço')" style="width:30px;top:-16px;left:-64px">
+            <button class="button button-small button-assertive" ng-click="showAlert('Excluir Endereço')" style="width:30px;top:-16px;left:-84px">
               <i class="icon ion-trash-a"> </i>
             </button>
 
