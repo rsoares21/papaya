@@ -7,80 +7,77 @@
   </ion-header-bar>
   <ion-content>
 
-		<div class="item item-divider" style="height:15px;">&nbsp;&nbsp;Ordenar resultados da busca por :</div>
+		<div class="item item-dividerppya">&nbsp;&nbsp;Ordenar resultados da busca por :</div>
 
 		<div class="row">
 		  	<div class="col">
 		  	  	<label class="item" style="padding:1px;">
-	  				<button class="button button-small" type="submit" style="background-color:#07ED2F" ng-click="setPrefsOrderBy('title')">Titulo do produto</button>
+	  				<button class="button button-small" type="submit" style="background-color:#07ED2F" ng-click="setPrefsOrderBy('title')">Nome</button>
 	  			</label>
 			</div>
 			<div class="col">
 			  <label class="item" style="padding:1px;">
-			  	<button class="button button-small" type="submit" style="background-color:#07ED2F" ng-click="setPrefsOrderBy('distancia')">Distancia para a loja&nbsp;</button>
+			  	<button class="button button-small" type="submit" style="background-color:#07ED2F" ng-click="setPrefsOrderBy('distancia')">Distancia&nbsp;</button>
 			  </label>
 			</div>
 			<div class="col">
 				<label class="item" style="padding:2px;">
-					<button class="button button-small" type="submit" style="background-color:#07ED2F" ng-click="setPrefsOrderBy('preco')">Preço da Oferta</button>
+					<button class="button button-small" type="submit" style="background-color:#07ED2F" ng-click="setPrefsOrderBy('preco')">Preço</button>
 				</label>
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col">
-				<div class="item item-divider">Ofertas Range</div>
-				<div class="item range range-balanced">
-					<i class="icon ion-navigate"></i>
-				    <input type="range" name="volume" min="0" max="2000" value="500">
-				    <i class="icon ion-location"></i>
-				    500m
-				</div>
-			</div>
-		</div>		
+		<div class="item item-dividerppya">Ofertas Range</div>
 
-		<div class="row">
-			<div class="col">
-				<div class="item item-divider">Endereços Range</div>
-				<div class="item range range-calm" ng-click="showAlert('aaa')">
-					<div style="width:100px;">Casa : &nbsp;&nbsp;</div>
-					<i class="icon ion-navigate"></i>
-				    <input type="range" name="volume" min="0" max="1000" value="1000">
-				    <i class="icon ion-location"></i>
-				    1000 m
-				</div>
-				<div class="item range range-energized">
-					<div style="width:100px;">Trabalho : &nbsp;&nbsp;</div>
-					<i class="icon ion-navigate"></i>
-				    <input type="range" name="volume" min="0" max="1000" value="500">
-				    <i class="icon ion-location"></i>
-				    500 m
-				</div>
-				<div class="item range range-assertive">
-					<div style="width:100px;">Faculdade : &nbsp;&nbsp;</div>
-					<i class="icon ion-navigate"></i>
-				    <input type="range" name="volume" min="0" max="1000" value="350">
-				    <i class="icon ion-location"></i>
-				    350 m
-				</div>
-				<div class="item range range-royal">
-					<div style="width:100px;">Academia : &nbsp;&nbsp;</div>
-					<i class="icon ion-navigate"></i>
-				    <input type="range" name="volume" min="0" max="1000" value="350">
-				    <i class="icon ion-location"></i>
-				    350 m
-				</div>
-				<div class="item range range-positive">
-					<div style="width:100px;">Metrô Carioca : &nbsp;&nbsp;</div>
-					<i class="icon ion-navigate"></i>
-				    <input type="range" name="volume" min="0" max="1000" value="350">
-				    <i class="icon ion-location"></i>
-				    350 m
-				</div>
-
-			</div>
+		<div class="item range range-balanced">
+			<i class="icon ion-navigate"></i>
+		    <input type="range" name="volume" min="0" max="2000" value="500">
+		    <i class="icon ion-location"></i>
+		    500m
 		</div>
 
+		<div class="item item-dividerppya">Endereços Range</div>
+
+			
+		<center><div style="position:relative;font-size:14px;top:2px;">Casa : &nbsp;&nbsp;</div></center>
+		<div class="range range-calm">
+			<i class="icon ion-navigate"></i>
+		    <input type="range" name="volume" min="0" max="1000" value="500">
+		    <i class="icon ion-location"></i>
+		    500 m
+		</div>
+
+		<center><div style="position:relative;font-size:14px;top:2px;">Trabalho : &nbsp;&nbsp;</div></center>
+		<div class="range range-energized">
+			<i class="icon ion-navigate"></i>
+		    <input type="range" name="volume" min="0" max="1000" value="500">
+		    <i class="icon ion-location"></i>
+		    500 m
+		</div>
+
+		<center><div style="position:relative;font-size:14px;top:2px;">Faculdade : &nbsp;&nbsp;</div></center>
+		<div class="range range-assertive">
+			<i class="icon ion-navigate"></i>
+		    <input type="range" name="volume" min="0" max="1000" value="500">
+		    <i class="icon ion-location"></i>
+		    500 m
+		</div>
+
+		<center><div style="position:relative;font-size:14px;top:2px;">Academia : &nbsp;&nbsp;</div></center>
+		<div class="range range-royal">
+			<i class="icon ion-navigate"></i>
+		    <input type="range" name="volume" min="0" max="1000" value="500">
+		    <i class="icon ion-location"></i>
+		    500 m
+		</div>
+
+		<center><div style="position:relative;font-size:14px;top:2px;">Metrô Carioca&nbsp;&nbsp;</div></center>
+		<div class="range range-positive">
+			<i class="icon ion-navigate"></i>
+		    <input type="range" name="volume" min="0" max="1000" value="500">
+		    <i class="icon ion-location"></i>
+		    500 m
+		</div>
 
 		<div class="row">
 			<div class="col">

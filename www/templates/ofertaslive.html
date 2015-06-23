@@ -18,7 +18,7 @@
 			<!--<div style="position:relative;top:-12px;padding-left:3px;padding-top:6px;height:12px;"><font size="1" color="#737CC4">Promoções exclusivas próximas de você agora<a style="color:#F706E7"> </a></font></div>-->
 
 			<ion-list>
-	            <ion-item ng-repeat="produto in ofertas | filter:searchText | limitTo:50:1"  class="itemppp"  style="height:52px;" on-swipe-left="showAlert({{produto.id}})" href="#/app/produto/{{produto.id}}">
+	            <ion-item ng-repeat="produto in ofertas | filter:searchText | limitTo:50:1"  class="itemppp"  style="height:52px;" on-swipe-left="confirmRemove({{produto.id}})" href="#/app/produto/{{produto.id}}">
 					<div style="width:50px;height:50px;position:relative;top:-15px;left:-15px;background-color:#F4F4F4;padding:1px;">
 				      	<img width="48px" height="48px" ng-click="showPopup()" href="#" ng-src="img/{{ produto.image }}">
 	                </div>

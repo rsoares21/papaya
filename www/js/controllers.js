@@ -154,11 +154,24 @@ angular.module('starter.controllers', ['ionic'])
      $scope.alerttext = text;
      var alertPopup = $ionicPopup.alert({
        title: 'Alert',
-       template: 'Deseja remover oferta '+ $scope.alerttext + ' por 30 minutos ?' 
+       template: ''+ $scope.alerttext  
      });
      alertPopup.then(function(res) {
      });
    };  
+
+   // An alert dialog
+   $scope.confirmRemove = function(text) {
+     console.log('showAlert: ' + text);
+     $scope.alerttext = text;
+     var alertPopup = $ionicPopup.alert({
+       title: 'Alert',
+       template: 'Deseja remover oferta '+ $scope.alerttext + ' por 30 minutos ?' 
+     });
+     alertPopup.then(function(res) {
+     });
+   };
+   
 })
  
 .controller('BuscaCtrl', function($scope, $rootScope, $filter) {

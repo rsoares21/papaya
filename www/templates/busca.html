@@ -18,7 +18,7 @@
 			<!--<div style="position:relative;top:-12px;padding-left:3px;padding-top:6px;height:12px;"><font size="1" color="#737CC4">Promoções exclusivas próximas de você agora<a style="color:#F706E7"> </a></font></div>-->
 
 			<ion-list>
-	            <ion-item ng-repeat="produto in ofertas | filter:searchText | limitTo:6:1"  class="itemppp"  style="height:52px;" on-swipe-left="showAlert({{produto.id}})" href="#/app/produto/{{produto.id}}">
+	            <ion-item ng-repeat="produto in ofertas | filter:searchText | limitTo:6:1"  class="itemppp"  style="height:52px;" on-swipe-left="confirmRemove({{produto.id}})" href="#/app/produto/{{produto.id}}">
 					<div style="width:50px;height:50px;position:relative;top:-15px;left:-15px;background-color:#F4F4F4;padding:1px;">
 				      	<img width="48px" height="48px" ng-click="showPopup()" href="#" ng-src="img/{{ produto.image }}">
 	                </div>
@@ -28,7 +28,7 @@
 					</div>-->
 
 					<div style="position:absolute;height:10px;left:58px;top:-2px;"><a style="font-family:Georgia, serif;font-size:12px;color:#012B08">{{ produto.title }}</a></div>
-				    <div style="position:absolute;height:10px;left:58px;top:13px;"><p style="font-size:9px;color:#CAD0D4">{{ produto.loja }}</p></div>
+				    <div style="position:absolute;height:10px;left:58px;top:14px;"><p style="font-size:9px;color:#CAD0D4">{{ produto.loja }}</p></div>
 					<div style="position:absolute;height:10px;left:60px;top:27px;">
 	                    <a style="color:#07ED2F;font-size:9px;" class="icon ion-location">&nbsp;{{ produto.distancia }}m&nbsp;&nbsp;</a>
 	                </div>
@@ -40,7 +40,7 @@
 	                </div>
 
 
-					<div style="position:absolute;height:18px;left:255px;top:17px;width:105px;padding-left:9px;">
+					<div style="position:absolute;height:18px;top:17px;width:105px;padding-left:9px;right:0%">
 						<div style="position:absolute;left:45px;top:-1px;color:#FD0066;font-size:7px;font-weight:"><del>{{ produto.precoNormal | currency:"":2}}</del></div>
 	                </div>
 

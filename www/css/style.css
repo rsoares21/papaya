@@ -1,3 +1,4 @@
+
 /* Empty. Add your own CSS if you like */
 .bar.bar-calm-p {
   border-color: #0a9ec7;
@@ -83,3 +84,27 @@ A{text-decoration:none}
   margin: 8px 12px;
   border-radius: 2px;
   background-color: #fff; }
+
+
+  .item-dividerppya {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  min-height: 24px;
+  background-color: #f5f5f5;
+  color: #222;
+  font-weight: 500; }
+
+input[type="range"]{
+  -webkit-appearance:none;
+  width:200px;
+  margin: 0px;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+  width:34px;
+  height:34px;  
+  border-radius: 100%;
+  background: #434343;
+  border: 3px solid aquamarine;
+  cursor: pointer;
+}
