@@ -18,36 +18,33 @@
 		</div>
 
 		<ion-list>
-            <ion-item class="itempp" href="#" >
-				<div style="width:104px;height:104px;position:relative;top:10px;left:-15px;background-color:#07ED2F;padding:2px;">
+            <ion-item class="itempp" href="#" style="height:200px;">
+
+				<div style="position:absolute;height:10px;left:4px;top:-1px;"><font size="2" color="#000B61">{{ produto.title }}</font></div>
+			    <div style="position:absolute;height:10px;left:4px;top:12px;"><font size="1" color="#97A3AC">{{ produto.loja }}</font><a style="color:#FCED5D" class="icon ion-ios-star"></a><a style="font-size:6px">95%</a></div>
+               	
+			    <div style="position:absolute;height:10px;left:4px;top:23px;"><font size="1" color="#B2BBC2">
+                	<a style="color:#368ED7"class="icon ion-iphone"></a>&nbsp;(21) 99777-8888&nbsp;
+                </div>
+
+				<div style="width:102px;height:100px;position:relative;top:30px;background-color:#646464;left:-15px;">
 			      	<img width="100px" height="100px" ng-src="img/{{ produto.image }}">
                 </div>
 
-		      	<div style="position:absolute;left:310px;top:21px;background-color:yellow">
-					<div style="width:0px;height:20px;background-color:#11c1f3;text-align:center;">
-						<i style="color:#B2BBC2;" class="icon {{produto.followicon}}"></i>
-					</div>
-				</div>
-
-				<div style="position:absolute;height:10px;left:4px;top:-1px;"><font size="2" color="#000B61">{{ produto.title }}</font></div>
-			    <div style="position:absolute;height:10px;left:120px;top:21px;"><font size="1" color="#97A3AC">{{ produto.loja }}</font></div>
-			    <div style="position:absolute;height:10px;left:120px;top:23px;"><font size="1" color="#B2BBC2">
-                	<a style="color:#368ED7"class="icon ion-iphone"></a>(21) 99777-8888&nbsp;
-                	<a style="color:#FCED5D" class="icon ion-ios-star"></a><a style="font-size:6px">95%</a>
-                </div>
-                <div style="position:absolute;height:10px;left:120px;top:42px;">
-                    <a style="color:#07ED2F;font-size:18px;" class="icon ion-arrow-right-a">&nbsp;{{ produto.preco }} &nbsp;</a>
-                    <a href="javascript:alert('formasdepagto');" style="color:#11C43C" class="icon ion-card"> &nbsp;</a>
-                    <a href="javascript:alert('maisinfo');" style="color:orange" class="icon ion-information-circled"> &nbsp;</a>
-                    </font>
-                </div>
-				<div style="position:absolute;height:10px;left:120px;top:57px;">
-                	<font size="1">
+                <div style="position:absolute;height:10px;left:110px;top:42px;">
                     <a style="color:#368ED7" class="icon ion-location">&nbsp;{{ produto.distancia }}m &nbsp;</a>
+                    <a style="color:#ED0779;font-size:7px;" class="icon ion-arrow-right-a">&nbsp;
+                    <a style="color:#07ED2F;font-size:12px;"><b>R$</b>&nbsp;{{ produto.preco | currency:"":2}} &nbsp;</a>
+                </div>
+
+                <div style="position:absolute;height:10px;left:110px;top:55px;">
+                    <a style="color:#368ED7" class="icon ion-location">&nbsp;900m &nbsp;</a>
+                    <a style="color:#ED0779;font-size:7px;" class="icon ion-arrow-right-a">&nbsp;
+                    <a style="color:#07ED2F;font-size:12px;"><b>R$</b>&nbsp;{{  produto.preco-(produto.preco/10) | currency:"":2}} &nbsp;</a> <!-- simulando uma oferta 10% mais barata em outro endereço -->
                 </div>
 
             </ion-item>
-			<div style="position:relative;height:200px;width:100%;top:-28px;background-color:#FFFFFF;z-index:2;">
+			<div style="position:relative;height:200px;width:100%;top:100px;background-color:#FFFFFF;z-index:2;">
 				12345sdad ad ad sadasdsd sadsa dsa dsadd sad sad ad sdsad sad sad Ricardo Alexandre da Silva Soares <br>
 				Ricardo Alexandre da Silva Soares Ricardo Alexandre
 				<br><br>

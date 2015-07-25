@@ -31,62 +31,63 @@
 
 		<div class="item range range-balanced">
 			<i class="icon ion-navigate"></i>
-		    <input type="range" name="volume" min="0" max="2000" value="500">
+		    <input type="range" name="volume" min="0" max="2000" value="500" ng-model="levelvalue">
 		    <i class="icon ion-location"></i>
-		    500m
+		    {{levelvalue}} m
 		</div>
 
-		<div class="item item-dividerppya">Endereços Range</div>
+		<div class="item item-dividerppya">Meus Endereços Range</div>
 
 			
 		<center><div style="position:relative;font-size:14px;top:2px;">Casa : &nbsp;&nbsp;</div></center>
 		<div class="range range-calm">
 			<i class="icon ion-navigate"></i>
-		    <input type="range" name="volume" min="0" max="1000" value="500">
+		    <input type="range" name="volume" min="0" max="1000" value="500" ng-model="levelvalue2">
 		    <i class="icon ion-location"></i>
-		    500 m
+		    {{levelvalue2}} m
 		</div>
 
 		<center><div style="position:relative;font-size:14px;top:2px;">Trabalho : &nbsp;&nbsp;</div></center>
 		<div class="range range-energized">
 			<i class="icon ion-navigate"></i>
-		    <input type="range" name="volume" min="0" max="1000" value="500">
+		    <input type="range" name="volume" min="0" max="1000" value="500" ng-model="levelvalue3">
 		    <i class="icon ion-location"></i>
-		    500 m
+		    {{levelvalue3}} m
 		</div>
 
 		<center><div style="position:relative;font-size:14px;top:2px;">Faculdade : &nbsp;&nbsp;</div></center>
 		<div class="range range-assertive">
 			<i class="icon ion-navigate"></i>
-		    <input type="range" name="volume" min="0" max="1000" value="500">
+		    <input type="range" name="volume" min="0" max="1000" value="500" ng-model="levelvalue4">
 		    <i class="icon ion-location"></i>
-		    500 m
+		    {{levelvalue4}} m
 		</div>
 
 		<center><div style="position:relative;font-size:14px;top:2px;">Academia : &nbsp;&nbsp;</div></center>
 		<div class="range range-royal">
 			<i class="icon ion-navigate"></i>
-		    <input type="range" name="volume" min="0" max="1000" value="500">
+		    <input type="range" name="volume" min="0" max="1000" value="500" ng-model="levelvalue5">
 		    <i class="icon ion-location"></i>
-		    500 m
+		    {{levelvalue5}} m
 		</div>
 
-		<center><div style="position:relative;font-size:14px;top:2px;">Metrô Carioca&nbsp;&nbsp;</div></center>
+		<center><div style="position:relative;font-size:14px;top:2px;">Metrô Estação Carioca&nbsp;&nbsp;</div></center>
 		<div class="range range-positive">
 			<i class="icon ion-navigate"></i>
-		    <input type="range" name="volume" min="0" max="1000" value="500">
+		    <input type="range" name="volume" min="0" max="1000" value="500" ng-model="levelvalue6">
 		    <i class="icon ion-location"></i>
-		    500 m
+		    {{levelvalue6}} m
 		</div>
 
+				<div class="item item-divider" style="background-color:#FF6595">Ofertas Descartadas hoje</div>
 		<div class="row">
+
 			<div class="col">
-				<div class="item item-divider" style="background-color:red">Ofertas Descartadas hoje</div>
 
 			<ion-list>
-	            <ion-item ng-repeat="produto in ofertasdescartadas | filter:searchText | limitTo:5:1"  class="itemppp"  style="height:52px;">
-					<div style="width:50px;height:50px;position:relative;background-color:#F4F4F4;padding:1px;">
-				      	<img width="48px" height="48px" href="#" ng-src="img/{{ produto.image }}">
+	            <ion-item ng-repeat="produto in ofertasdescartadas  | filter:searchText | limitTo:20:1" class="itemppp"  style="height:52px;" on-swipe-left="showAlert('Restaurar oferta?')" href="#/app/produto/{{produto.id}}" ng-click="closePreferences()">
+					<div style="width:50px;height:50px;position:relative;top:-15px;left:-15px;background-color:#F4F4F4;padding:1px;">
+				      	<img width="48px" height="48px" ng-click="showPopup()" href="#" ng-src="img/{{ produto.image }}">
 	                </div>
 
 			      	<!--<div style="position:absolute;left:310px;top:21px;">
@@ -94,30 +95,29 @@
 					</div>-->
 
 					<div style="position:absolute;height:10px;left:58px;top:-2px;"><a style="font-family:Georgia, serif;font-size:12px;color:#012B08">{{ produto.title }}</a></div>
-				    <div style="position:absolute;height:10px;left:58px;top:13px;"><p style="font-size:9px;color:#CAD0D4">{{ produto.loja }}</p></div>
+				    <div style="position:absolute;height:10px;left:58px;top:14px;z-index:10;"><p style="font-size:9px;color:#CAD0D4">{{ produto.loja }}</p></div>
 					<div style="position:absolute;height:10px;left:60px;top:27px;">
 	                    <a style="color:#07ED2F;font-size:9px;" class="icon ion-location">&nbsp;{{ produto.distancia }}m&nbsp;&nbsp;</a>
 	                </div>
 				    <div style="position:absolute;height:10px;left:100px;top:27px;">
                     	<font size="1" color="#B2BBC2"><a style="color:#368ED7" class="icon ion-iphone"></a>
                         <a style="font-size:9px">(21) 99777-8888</a>&nbsp;</font>
-	                	<a style="color:#FCED5D" class="icon ion-ios-star"></a><a style="font-size:6px">{{produto.ratingservico}}</a>
+	                	<a style="color:#FCED5D" class="icon ion-ios-star"></a><a style="font-size:6px">{{produto.ratingservico}}</a>&nbsp;
+                        <a style="color:#07ED2F;font-size:8px;" class="icon {{produto.followicon}}"></a>
 	                </div>
 
-
-					<div style="position:absolute;height:18px;right:-5%;top:7px;width:105px;padding-left:9px;">
-						<div style="position:absolute;top:-1px;color:#FFBAD5;font-size:7.5px;font-weight:">R$&nbsp;<del>{{ produto.precoNormal }}</del></div>
+					<div style="position:absolute;height:18px;top:17px;width:105px;padding-left:9px;right:0%">
+						<div style="position:absolute;left:45px;top:-1px;color:#FD0066;font-size:7px;font-weight:"><del>{{ produto.precoNormal | currency:"":2}}</del></div>
 	                </div>
 
-					<div style="position:absolute;height:25px;right:0%;top:23px;width:105px;background-color:#1186F3;padding-left:9px;border-radius: 2px 4px 0px 6px">
-						<div style="position:absolute;top:2px;color:#FFFD39;font-size:9px;"><b>R$</b>&nbsp;</div>
-						<div style="position:absolute;left:30px;top:2px;color:#FFFFFF;font-size:9.5px;"><b>{{ produto.preco }}</b></div>
+					<div style="position:absolute;height:18px;right:0%;top:33px;width:105px;background-color:#07ED2F;padding-left:9px;border-radius: 2px 4px 0px 6px">
+						<div style="position:absolute;top:-1px;color:#FFFD39;font-size:9px;"><b>R$</b>&nbsp;</div>
+						<div style="position:absolute;left:30px;top:-1px;color:#FFFFFF;font-size:8.5px;"><b>{{ produto.preco | currency:"":2}}</b></div>
 	                </div>
 
-					<div style="position:absolute;height:18px;right:0%;top:8px;width:25px;background-color:#07ED2F;border-radius: 28px 8px 8px 28px">
-						<div style="position:relative;width:255px;color:#11c1f3;font-size:8px;">&nbsp;&nbsp;<b>-{{ produto.desconto }}%</b>&nbsp;</div>
+					<div style="position:absolute;height:18px;right:0%;top:18px;width:25px;background-color:#07ED2F;border-radius: 28px 8px 8px 28px">
+						<div style="position:relative;width:255px;color:#11c1f3;font-size:8px;top:-2px;">&nbsp;&nbsp;<b>-{{ produto.desconto }}%</b>&nbsp;</div>
 	                </div>
- 
 
 	            </ion-item>
                 

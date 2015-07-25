@@ -2,6 +2,13 @@ angular.module('starter.controllers', ['ionic'])
 
 .controller('AppCtrl', function($scope, $rootScope, $ionicModal, $filter, $ionicPopup, $timeout, $state) {
 
+  $scope.levelvalue = 500;
+  $scope.levelvalue2 = 500;
+  $scope.levelvalue3 = 500;
+  $scope.levelvalue4 = 500;
+  $scope.levelvalue5 = 450;
+  $scope.levelvalue6 = 450;
+
   $scope.goSeguindoFromPrefModal = function () {
     $state.go('app.seguindo');
     $scope.closePreferences();
@@ -45,8 +52,8 @@ angular.module('starter.controllers', ['ionic'])
   $scope.prefsData = {};
 
   $rootScope.ofertasdescartadas = [
-    { id: 1, ratingservico: '85%', title: 'Óculos RAY-BAN RB5225 2034', precoNormal: '799,00', preco: '599,00', image: 'raybanrb5225.jpg', loja: 'Óticas da Maria @ Rua São Clemente 12 / 205 - Botafogo', distancia: 1750, info:'Óculos grau Preto', desconto:'20'},
-    { id: 2, ratingservico: '85%', title: 'IPhone 6 Plus', precoNormal: '3.999,00', preco: '3.699,00', image: 'iphone.jpg', loja: 'PriceHigh @ Rua do Rosario 101 / sl 611 - Centro', distancia: 2180, info:'', desconto:'5'},
+    { id: 1, ratingservico: '85%', title: 'Óculos RAY-BAN RB5225 2034', precoNormal: 799, preco: 599, image: 'raybanrb5225.jpg', loja: 'Óticas da Maria @ Rua São Clemente 12 / 205 - Botafogo', distancia: 1750, info:'Óculos grau Preto', desconto:'20'},
+    { id: 2, ratingservico: '85%', title: 'IPhone 6 Plus', precoNormal: 3999, preco: 3699, image: 'iphone.jpg', loja: 'PriceHigh @ Rua do Rosario 101 / sl 611 - Centro', distancia: 2180, info:'', desconto:'5'},
   ];
 
   // Create the preferencias modal that we will use later
@@ -171,7 +178,7 @@ angular.module('starter.controllers', ['ionic'])
      alertPopup.then(function(res) {
      });
    };
-   
+
 })
  
 .controller('BuscaCtrl', function($scope, $rootScope, $filter) {
@@ -185,6 +192,7 @@ angular.module('starter.controllers', ['ionic'])
     { id: 6, rating: '85%', tipo: 'Academia', title: 'Academia Upper', image: 'upper.jpg', endereco: 'Rua Marquês de Abrantes, 88, 96 e 100, Flamengo  ', distancia: 575},        
     { id: 7, rating: '85%', tipo: 'Autoescola', title: 'Auto E Moto Escola Apollo', image: 'default_servicos.jpg', endereco: 'Rua Marquês de Abrantes, 177 - Loja: C Flamengo', distancia: 705},            
     { id: 8, rating: '95%', tipo: 'Petshop', title: 'PetDog', image: 'default_servicos.jpg', endereco: 'Machado de Assis 221 / sl 311 - Flamengo', distancia: 80},                
+    { id: 9, rating: '95%', tipo: 'Petshop', title: 'Dogs Out', image: 'default_servicos.jpg', endereco: 'Rua Bambina 100 - Botafogo', distancia: 3000}
   ];
 
   $rootScope.ofertas = [
@@ -193,9 +201,11 @@ angular.module('starter.controllers', ['ionic'])
     { id: 3, followicon : 'ion-checkmark-circled', ratingservico: '85%', title: 'IPhone 6 Plus', precoNormal: 3999.00, preco: 3499.00, image: 'iphone.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: 2180, info:'', desconto:'15'},
     { id: 4, followicon : '', ratingservico: '85%', title: 'Motorola X', precoNormal: 1599.00, preco: 1399.00, image: 'motox.jpg', loja: 'Vivo @ Av. Rio Branco 156 / 102 - Centro', distancia: 2350, info: '', desconto:'20'},
     { id: 5, followicon : '', ratingservico: '85%', title: 'Royal Canin 8+ 1kg', precoNormal: 60.00, preco: 43.50, image: 'Royal_Canin_Mini_Adult_8_large.jpg', loja: 'PetDog @ Machado de Assis 221 / sl 311 - Flamengo', distancia: 80, info:'', desconto:'15'},
-    { id: 6, followicon : 'ion-checkmark-circled', ratingservico: '85%', title: 'Óculos RAY-BAN RB5225 2034', precoNormal: 799.00, preco: 499.00, image: 'raybanrb5225.jpg', loja: 'Óticas do Povo @ Rua do Catete 350 / 25 - Catete', distancia: 500, info:'Óculos grau Preto', desconto:'30'},
+    { id: 6, followicon : 'ion-checkmark-circled', ratingservico: '85%', title: 'Óculos RAY-BAN RB5225 2034', precoNormal: 799.00, preco: 499.00, image: 'raybanrb5225.jpg', loja: 'Óticas do Vovô @ Rua do Catete 350 / 25 - Catete', distancia: 500, info:'Óculos grau Preto', desconto:'30'},
     { id: 7, followicon : '', ratingservico: '85%', title: 'Smartphone Samsung Galaxy Gran Prime', precoNormal: 759.00, preco: 499.00, image: 'samsung_galaxygp.jpg', loja: 'Homeprice @ Rua do Rosario 101 / sl 311 - Centro', distancia: 2800, info:'Smartphone Samsung Galaxy Gran Prime Dual Chip Desbloqueado Tim Android 4.4 Kit Kat Tela 5 8GB 3G Câmera 8MP - Branco', desconto:'35'},
-    { id: 8, followicon : '', ratingservico: '85%', title: 'Motorola X', precoNormal: 1499.00, preco: 1398.00, image: 'motox.jpg', loja: 'Vivo @ Rua 13 de Maio 101 - Centro', distancia: 2000, info:'', desconto:'20'}
+    { id: 8, followicon : '', ratingservico: '85%', title: 'Motorola X', precoNormal: 1499.00, preco: 1398.00, image: 'motox.jpg', loja: 'Vivo @ Rua 13 de Maio 101 - Centro', distancia: 2000, info:'', desconto:'20'},
+    { id: 9, followicon : '', ratingservico: '95%', title: 'Royal Canin 8+ 1kg', precoNormal: 59.00, preco: 39.50, image: 'Royal_Canin_Mini_Adult_8_large.jpg', loja: 'Dogs Out @ Rua Bambina 100 - Botafogo', distancia: 3000, info:'', desconto:'25'},
+    { id: 10, followicon : '', ratingservico: '90%', title: 'Royal Canin 8+ 1kg', precoNormal: 59.00, preco: 51.50, image: 'Royal_Canin_Mini_Adult_8_large.jpg', loja: 'Pet Kovitch @ Rua Senador Vergueiro 200 - Flamengo', distancia: 900, info:'', desconto:'20'}
   ];
 
   items = $rootScope.ofertas;
